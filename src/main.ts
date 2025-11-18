@@ -1,13 +1,15 @@
 import './style.css'
 import WebGL from './WebGL'
 import * as THREE from 'three'
-import vertexShader from './shaders/vert.glsl.js'
+import vertexShader from './shaders/vert.glsl'
 import fragmentShader from './shaders/frag.glsl'
 
 const webGlRenderer = new WebGL({ antialias: true })
 const scene = webGlRenderer.scene
 const camera = webGlRenderer.camera
 const renderer = webGlRenderer.renderer
+
+webGlRenderer.useOrbitControls()
 
 let uniforms = {
   uTime: { type: 'f', value: 0.0 },

@@ -108,7 +108,7 @@ export default class WebGL {
     this.scene.add(axesHelper)
   }
 
-  addOrbitControls() {
+  useOrbitControls() {
     const orbit = new OrbitControls(this.camera, this.renderer.domElement)
     orbit.update()
   }
