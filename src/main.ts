@@ -1,7 +1,7 @@
 import './style.css'
 import WebGL from './WebGL'
 import * as THREE from 'three'
-import vertexShader from './shaders/vert.glsl'
+import vertexShader from './shaders/vert.glsl.js'
 import fragmentShader from './shaders/frag.glsl'
 
 const webGlRenderer = new WebGL({ antialias: true })
@@ -14,10 +14,10 @@ let uniforms = {
 }
 
 const planeGeometry = new THREE.PlaneGeometry(3, 3)
-const planeMaterial = new THREE.RawShaderMaterial({
-  // uniforms: uniforms,
-  vertexShader,
-  fragmentShader,
+const planeMaterial = new THREE.ShaderMaterial({
+  uniforms: uniforms,
+  vertexShader: vertexShader,
+  fragmentShader: fragmentShader,
 })
 const planeMesh = new THREE.Mesh(planeGeometry, planeMaterial)
 scene.add(planeMesh)
